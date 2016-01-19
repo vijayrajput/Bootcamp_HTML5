@@ -1,0 +1,35 @@
+{
+    "application": {
+        "id": "",
+        "title": "fioriCheckJobs",
+        "description": "Fiori Application to check Jobs",
+        "type": "SAP_UI5_Component",
+        "componentUrl": "/dist",
+        "appUrl": "#fioriCheckJobs-Display",
+        "navigationComponentName": "com.sap.sdc.hcp.bootcamp",
+        "intentSemanticObject": "",
+        "intentAction": "",
+        "html5ApplicationName": "fioricheckjobs",
+        "HCPParentApplicationName": ""
+    },
+    "assignment": {
+        "groups": [
+            "e6d3222f-c653-441c-8de0-0c66283e592a-1449220521718"
+        ],
+        "contentPackages": [
+            "64bbbb99-395e-4dfb-9808-3f565cbbd144-1450285660140"
+        ],
+        "categories": []
+    },
+    "tile": {
+        "type": "StaticTile",
+        "title": "Job Portal",
+        "subtitle": "New Jobs",
+        "searchKeywords": "Job Portal,New Jobs",
+        "displayIconUrl": "sap-icon://my-view",
+        "displayInfoText": "",
+        "size": "1x1",
+        "serviceURL": "",
+        "refreshInterval": ""
+    }
+}

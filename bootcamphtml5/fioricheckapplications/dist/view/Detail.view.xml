@@ -1,0 +1,103 @@
+<!-- Add sap.ui.core libarary-->
+<mvc:View controllerName="com.sap.sdc.hcp.bootcamp.controller.Detail" xmlns:core="sap.ui.core" xmlns:footerbar="sap.ushell.ui.footerbar"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:viz="sap.viz.ui5.controls" xmlns="sap.m">
+	<semantic:DetailPage busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}" id="page" navButtonPress="onNavBack"
+		showNavButton="{device>/system/phone}" title="{i18n>detailTitle}">
+		<semantic:content>
+			<!-- Custom Code -->
+			<!-- Change formatter from '.formatter.currencyValue' to '.formatter.numberUnit' -->
+			<ObjectHeader id="objectHeader" number="{ path: 'RemainingTime', formatter: '.formatter.numberUnit' }" numberUnit="{RemainingTimeUnit}"
+				title="{DESCRIPTION}"></ObjectHeader>
+			<IconTabBar class="sapUiResponsiveContentPadding" id="iconTabBar">
+				<items>
+					<!--/***************************************************************************************************-->
+					<!--Change icon and add key-->
+					<!--*****************************************************************************************************/-->
+					<IconTabFilter icon="sap-icon://activity-items" id="iconTabBarFilter1" key="applicant" tooltip="{i18n>detailIconTabBarInfo}">
+						<!--/***************************************************************************************************-->
+						<!--Move Below Table node as Content for IconTabFilter-->
+						<!--*****************************************************************************************************/-->
+						<content>
+							<Table busyIndicatorDelay="{detailView>/lineItemTableDelay}" class="sapUiResponsiveMargin" id="lineItemsList" items="{EnrollmentDetails}"
+								noDataText="{i18n>detailLineItemTableNoDataText}" updateFinished="onListUpdateFinished" width="auto">
+								<headerToolbar>
+									<Toolbar id="lineItemsToolbar">
+										<Title id="lineItemsHeader" text="{detailView>/lineItemListTitle}"/>
+									</Toolbar>
+								</headerToolbar>
+								<columns>
+									<!--/***************************************************************************************************-->
+									<!--Column for Applicant Image-->
+									<!--*****************************************************************************************************/-->
+									<Column width="4rem"/>
+									<Column>
+										<Text text="{i18n>detailLineItemTableIDColumn}"/>
+									</Column>
+									<!--/***************************************************************************************************-->
+									<!--Column for Download Resume-->
+									<!--*****************************************************************************************************/-->
+									<Column demandPopin="true" minScreenWidth="Tablet" width="8rem"/>
+									<!--/***************************************************************************************************-->
+									<!--Column for Applicant Contact-->
+									<!--*****************************************************************************************************/-->
+									<Column demandPopin="true" minScreenWidth="Tablet" width="13rem"/>
+									<Column demandPopin="true" hAlign="Right" minScreenWidth="Tablet">
+										<Text text="{i18n>detailLineItemTableUnitNumberColumn}"/>
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<!--/***************************************************************************************************-->
+											<!--Applicant Image-->
+											<!--*****************************************************************************************************/-->
+											<Image densityAware="false" src="/destinations/BootCampDestination/JobEnrollmentDemo/DocManagement?type=pic&amp;empid={PERSONID}"
+												width="2rem"></Image>
+											<!--/***************************************************************************************************-->
+											<!--Add Last Name in binding-->
+											<!--*****************************************************************************************************/-->
+											<ObjectIdentifier text="{PERSONID}" title="{FIRST_NAME} {LAST_NAME}"/>
+											<!--/***************************************************************************************************-->
+											<!--Resume Download-->
+											<!--*****************************************************************************************************/-->
+											<Link href="{path: 'PERSONID', formatter:'.formatter.linkFormat'}" press="linkOnPress" target="_top"
+												text="{i18n>detailLineItemTableDownloadCV}"/>
+											<!--/***************************************************************************************************-->
+											<!--Schedule Interview Download-->
+											<!--*****************************************************************************************************/-->
+											<Link press="linkOnCalenderPress" target="_top" text="{i18n>detailLineItemTableNotification}">
+												<customData>
+													<core:CustomData key="empId" value="{PERSONID}"></core:CustomData>
+													<core:CustomData key="jobId" value="{JOBID}"></core:CustomData>
+												</customData>
+											</Link>
+											<ObjectNumber unit="{LOCATION}"/>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</content>
+					</IconTabFilter>
+					<!--/***************************************************************************************************-->
+					<!--Change icon, Key  and add content for Donut Chart-->
+					<!--*****************************************************************************************************/-->
+					<IconTabFilter icon="sap-icon://donut-chart" id="iconTabBarFilter2" key="analytics" tooltip="{i18n>detailIconTabBarAttachments}">
+						<content>
+							<viz:Popover id="idPopOver"></viz:Popover>
+							<viz:VizFrame id="idVizFrameDonut" uiConfig="{applicationSet:'fiori'}"></viz:VizFrame>
+						</content>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</semantic:content>
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
+		</semantic:sendEmailAction>
+		<semantic:shareInJamAction>
+			<semantic:ShareInJamAction id="shareInJam" press="onShareInJamPress" visible="{FLP>/isShareInJamActive}"/>
+		</semantic:shareInJamAction>
+		<semantic:saveAsTileAction>
+			<footerbar:AddBookmarkButton id="shareTile" title="{detailView>/saveAsTileTitle}"/>
+		</semantic:saveAsTileAction>
+	</semantic:DetailPage>
+</mvc:View>

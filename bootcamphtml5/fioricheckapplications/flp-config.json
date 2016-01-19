@@ -1,0 +1,35 @@
+{
+    "application": {
+        "id": "",
+        "title": "fioriCheckApplications",
+        "description": "Fiori Application for Admin",
+        "type": "SAP_UI5_Component",
+        "componentUrl": "/dist",
+        "appUrl": "#fioriCheckApplications-Display",
+        "navigationComponentName": "com.sap.sdc.hcp.bootcamp",
+        "intentSemanticObject": "",
+        "intentAction": "",
+        "html5ApplicationName": "fioricheckapplications",
+        "HCPParentApplicationName": ""
+    },
+    "assignment": {
+        "groups": [
+            "e6d3222f-c653-441c-8de0-0c66283e592a-1449220521718"
+        ],
+        "contentPackages": [
+            "29eecf49-e550-4927-9ca7-7489e0a5c0f2-1450285523099"
+        ],
+        "categories": []
+    },
+    "tile": {
+        "type": "StaticTile",
+        "title": "Job Portal",
+        "subtitle": "Adminstrator View",
+        "searchKeywords": "Job Portal,Adminstrator View",
+        "displayIconUrl": "sap-icon://action-settings",
+        "displayInfoText": "",
+        "size": "1x1",
+        "serviceURL": "",
+        "refreshInterval": ""
+    }
+}

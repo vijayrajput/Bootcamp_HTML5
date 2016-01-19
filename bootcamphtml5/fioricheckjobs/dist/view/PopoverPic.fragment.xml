@@ -1,0 +1,24 @@
+<core:FragmentDefinition
+  xmlns="sap.m"
+  xmlns:u="sap.ui.unified"
+  xmlns:core="sap.ui.core">
+  <ResponsivePopover
+    title="Upload Profile Picture"
+    class="sapUiPopupWithPadding"
+    placement="Auto" >
+    <beginButton>
+      <Button text="Upload" press="handleUploadPicPhoto" />
+    </beginButton>
+    <endButton>
+      <Button text="Cancel" press="handleCloseButton" />
+    </endButton>
+    <content>
+      <u:FileUploader
+			id="fileUploaderPicture"
+			name="myFileUpload"
+			uploadUrl="/destinations/BootCampDestination/JobEnrollmentDemo/DocManagement?type=pic&amp;empid={userapi>/name}"
+			tooltip="Select your Profile Picture"
+			uploadComplete="handleUploadComplete"/>
+    </content>
+  </ResponsivePopover>
+</core:FragmentDefinition>

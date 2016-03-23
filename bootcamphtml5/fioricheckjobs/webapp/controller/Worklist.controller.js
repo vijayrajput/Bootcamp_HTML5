@@ -201,7 +201,7 @@ sap.ui.define([
 			var oData = {
 				"JOBID": jobid,
 				"PERSONID": this.getView().getModel('userapi').getProperty("/name"),
-				"APPLIED_ON": null,
+				"CREATED_ON": null,
 				"EMAIL": this.getView().getModel('userapi').getProperty("/email"),
 				"FIRST_NAME": this.getView().getModel('userapi').getProperty("/firstName"),
 				"LAST_NAME": this.getView().getModel('userapi').getProperty("/lastName"),

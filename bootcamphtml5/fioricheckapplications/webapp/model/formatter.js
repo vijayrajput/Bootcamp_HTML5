@@ -35,7 +35,7 @@ sap.ui.define([], function() {
 			if (sValue) {
 				//return "https://www.ets.org/Media/Tests/TOEFL/pdf/SampleQuestions.pdf"+value;}
 				//var oRootPath = this.getView().getModel("device").getProperty("/rootPath");
-				return "/destinations/BootCampDestination/JobEnrollmentDemo/DocManagement?type=cv&empid=" + sValue;
+				return window.oRootPath + "/destinations/BootCampDestination/JobEnrollmentDemo/DocManagement?type=cv&empid=" + sValue;
 			}
 		}
 		// ***************************************************************************************************

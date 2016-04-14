@@ -14,7 +14,7 @@ sap.ui.define([
 
 		/**
 		 * The component is initialized by UI5 automatically during the startup of the app and calls the init method once.
-		 * In this function, the FLP and device models are set and the router is initialized.
+		 * In this function, the device models are set and the router is initialized.
 		 * @public
 		 * @override
 		 */
@@ -27,15 +27,16 @@ sap.ui.define([
 
 			// set the device model
 			this.setModel(models.createDeviceModel(), "device");
-			// set the FLP model
-			this.setModel(models.createFLPModel(), "FLP");
-// ***************************************************************************************************
+
+			// ***************************************************************************************************
 			// Start of Custom code 
-// ***************************************************************************************************				
+			// ***************************************************************************************************	
+			window.oRootPath = jQuery.sap.getModulePath("com.sap.sdc.hcp.bootcamp");
 			this.setModel(models.createUserModel(), "userapi");
-// ***************************************************************************************************
+			
+			// ***************************************************************************************************
 			// End of Custom code 
-// ***************************************************************************************************				
+			// ***************************************************************************************************				
 
 			// create the views based on the url/hash
 			this.getRouter().initialize();

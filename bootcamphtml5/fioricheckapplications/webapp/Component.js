@@ -22,7 +22,7 @@ sap.ui.define([
 			init : function () {
 				this.oListSelector = new ListSelector();
 				this._oErrorHandler = new ErrorHandler(this);
-
+				window.oRootPath = jQuery.sap.getModulePath("com.sap.sdc.hcp.bootcamp");
 				// set the device model
 				this.setModel(models.createDeviceModel(), "device");
 				// set the FLP model

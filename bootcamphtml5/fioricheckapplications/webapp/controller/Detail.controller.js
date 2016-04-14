@@ -267,7 +267,7 @@ sap.ui.define([
 			var googleWindow = window.open(url, "Google Page", "width=480,height=585,top=100,left=300,location=no");
 
 			//var oRootPath = this.getView().getModel("device").getProperty("/rootPath");
-			var url = "/destinations/BootCampDestination/JobEnrollmentDemo/MailServlet?personid=" + personId + "&jobid=" + jobId;
+			var url = window.oRootPath +"/destinations/BootCampDestination/JobEnrollmentDemo/MailServlet?personid=" + personId + "&jobid=" + jobId;
 
 			$
 				.ajax({

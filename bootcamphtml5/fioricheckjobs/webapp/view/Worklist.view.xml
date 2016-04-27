@@ -5,8 +5,8 @@
 		<!--Set the page attributes to the desired ones and add the fields to display the user log in name-->
 		<!--****************************************************************************************************/-->
 		<semantic:content>
-			<Toolbar>
-				<Label class="sapUiLargeMargin" text="{i18n>Welcome}"/>
+			<Toolbar id="toolbar01">
+				<Label id ="Welcome" class="sapUiLargeMargin" text="{i18n>Welcome}"/>
 				<Text id="FirstName" maxLines="1" text="{userapi>/firstName}"/>
 				<Text id="LasttName" maxLines="1" text="{userapi>/lastName}"/>
 				<ToolbarSpacer></ToolbarSpacer>
@@ -76,8 +76,8 @@
 		<!--Start of Custom Code-->
 		<!--*****************************************************************************************************/-->
 		<semantic:customFooterContent>
-			<Button icon="sap-icon://pdf-attachment" press="handleUploadResumePopover" text="{i18n>btnUploadProfile}" type="Accept"/>
-			<Button icon="sap-icon://add-photo" press="handleUploadPicPopover" text="{i18n>btnUploadPicture}" type="Accept"/>	
+			<Button id="buttonCV" icon="sap-icon://pdf-attachment" press="handleUploadResumePopover" text="{i18n>btnUploadProfile}" type="Accept"/>
+			<Button id="buttonPic" icon="sap-icon://add-photo" press="handleUploadPicPopover" text="{i18n>btnUploadPicture}" type="Accept"/>	
 		</semantic:customFooterContent>
 		<!--/***************************************************************************************************-->
 		<!--End of Custom Code-->

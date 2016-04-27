@@ -3,8 +3,9 @@ sap.ui.define([
 		"sap/ui/model/json/JSONModel",
 		"com/sap/sdc/hcp/bootcamp/model/formatter",
 		"sap/ui/model/Filter",
-		"sap/ui/model/FilterOperator"
-	], function (BaseController, JSONModel, formatter, Filter, FilterOperator) {
+		"sap/ui/model/FilterOperator",
+		"sap/ui/core/routing/History"
+	], function (BaseController, JSONModel, formatter, Filter, FilterOperator, History) {
 		"use strict";
 
 		return BaseController.extend("com.sap.sdc.hcp.bootcamp.controller.Worklist", {
@@ -91,21 +92,43 @@ sap.ui.define([
 				this._showObject(oEvent.getSource());
 			},
 
+
 			/**
-			 * Navigates back in the browser history, if the entry was created by this app.
-			 * If not, it navigates to the Fiori Launchpad home page.
+			 * Event handler for navigating back.
+			 * It there is a history entry or an previous app-to-app navigation we go one step back in the browser history
+			 * If not, it will navigate to the shell home
 			 * @public
 			 */
-			onNavBack : function () {
-				var oHistory = sap.ui.core.routing.History.getInstance(),
-					sPreviousHash = oHistory.getPreviousHash();
+			onNavBack : function() {
+				var sPreviousHash = History.getInstance().getPreviousHash(),
+					oCrossAppNavigator = sap.ushell.Container.getService("CrossApplicationNavigation");
 
-				if (sPreviousHash !== undefined) {
-					// The history contains a previous entry
+				if (sPreviousHash !== undefined || !oCrossAppNavigator.isInitialNavigation()) {
 					history.go(-1);
+				} else {
+					oCrossAppNavigator.toExternal({
+						target: {shellHash: "#Shell-home"}
+					});
 				}
 			},
 
+			/**
+			 * Event handler when the share in JAM button has been clicked
+			 * @public
+			 */
+			onShareInJamPress : function () {
+				var oViewModel = this.getModel("worklistView"),
+					oShareDialog = sap.ui.getCore().createComponent({
+						name: "sap.collaboration.components.fiori.sharing.dialog",
+						settings: {
+							object:{
+								id: location.href,
+								share: oViewModel.getProperty("/shareOnJamTitle")
+							}
+						}
+					});
+				oShareDialog.open();
+			},
 
 			onSearch : function (oEvent) {
 				if (oEvent.getParameters().refreshButtonPressed) {
@@ -164,14 +187,14 @@ sap.ui.define([
 					oViewModel.setProperty("/tableNoDataText", this.getResourceBundle().getText("worklistNoDataWithSearchText"));
 				}
 			}
-		// ***************************************************************************************************
+			// ***************************************************************************************************
 		// Start of Custom function code
 		// *****************************************************************************************************
 		,
 		applyPost: function(oEvent) {
 
 			var jobid = oEvent.getSource().getModel().getProperty(oEvent.getSource().getBindingContext().getPath()).JOBID;
-			var selfId = this.getView().getModel('userapi').getProperty("/name");
+			//var selfId = this.getView().getModel("userapi").getProperty("/name");
 
 			var oData = {
 				"JOBID": jobid,

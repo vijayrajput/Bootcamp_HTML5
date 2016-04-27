@@ -7,10 +7,10 @@
     class="sapUiPopupWithPadding"
     placement="Auto" >
     <beginButton>
-      <Button text="Upload" press="handleUploadResumeProfile" />
+      <Button id="buttonUpload" text="Upload" press="handleUploadResumeProfile" />
     </beginButton>
     <endButton>
-      <Button text="Cancel" press="handleCloseRButton" />
+      <Button id="buttonCancel" text="Cancel" press="handleCloseRButton" />
     </endButton>
     <content>
       <u:FileUploader

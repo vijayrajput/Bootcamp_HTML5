@@ -29,19 +29,19 @@
 									<!--/***************************************************************************************************-->
 									<!--Column for Applicant Image-->
 									<!--*****************************************************************************************************/-->
-									<Column width="4rem"/>
-									<Column>
+									<Column id= "column1" width="4rem"/>
+									<Column id= "column2" >
 										<Text text="{i18n>detailLineItemTableIDColumn}"/>
 									</Column>
 									<!--/***************************************************************************************************-->
 									<!--Column for Download Resume-->
 									<!--*****************************************************************************************************/-->
-									<Column demandPopin="true" minScreenWidth="Tablet" width="8rem"/>
+									<Column id= "column3"  demandPopin="true" minScreenWidth="Tablet" width="8rem"/>
 									<!--/***************************************************************************************************-->
 									<!--Column for Applicant Contact-->
 									<!--*****************************************************************************************************/-->
-									<Column demandPopin="true" minScreenWidth="Tablet" width="13rem"/>
-									<Column demandPopin="true" hAlign="Right" minScreenWidth="Tablet">
+									<Column id= "column4"  demandPopin="true" minScreenWidth="Tablet" width="13rem"/>
+									<Column id= "column5"  demandPopin="true" hAlign="Right" minScreenWidth="Tablet">
 										<Text text="{i18n>detailLineItemTableUnitNumberColumn}"/>
 									</Column>
 								</columns>

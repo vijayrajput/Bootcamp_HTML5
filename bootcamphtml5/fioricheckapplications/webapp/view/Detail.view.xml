@@ -7,7 +7,7 @@
 			<!-- Custom Code -->
 			<!-- Change formatter from '.formatter.currencyValue' to '.formatter.numberUnit' -->
 			<ObjectHeader id="objectHeader" number="{ path: 'RemainingTime', formatter: '.formatter.numberUnit' }" numberUnit="{RemainingTimeUnit}"
-				title="{DESCRIPTION}"></ObjectHeader>
+				title="{DESCRIPTION}"/>
 			<IconTabBar class="sapUiResponsiveContentPadding" id="iconTabBar">
 				<items>
 					<!--/***************************************************************************************************-->
@@ -29,19 +29,19 @@
 									<!--/***************************************************************************************************-->
 									<!--Column for Applicant Image-->
 									<!--*****************************************************************************************************/-->
-									<Column id= "column1" width="4rem"/>
-									<Column id= "column2" >
+									<Column id="column1" width="4rem"/>
+									<Column id="column2">
 										<Text text="{i18n>detailLineItemTableIDColumn}"/>
 									</Column>
 									<!--/***************************************************************************************************-->
 									<!--Column for Download Resume-->
 									<!--*****************************************************************************************************/-->
-									<Column id= "column3"  demandPopin="true" minScreenWidth="Tablet" width="8rem"/>
+									<Column id="column3" demandPopin="true" minScreenWidth="Tablet" width="8rem"/>
 									<!--/***************************************************************************************************-->
 									<!--Column for Applicant Contact-->
 									<!--*****************************************************************************************************/-->
-									<Column id= "column4"  demandPopin="true" minScreenWidth="Tablet" width="13rem"/>
-									<Column id= "column5"  demandPopin="true" hAlign="Right" minScreenWidth="Tablet">
+									<Column id="column4" demandPopin="true" minScreenWidth="Tablet" width="13rem"/>
+									<Column id="column5" demandPopin="true" hAlign="Right" minScreenWidth="Tablet">
 										<Text text="{i18n>detailLineItemTableUnitNumberColumn}"/>
 									</Column>
 								</columns>
@@ -51,8 +51,8 @@
 											<!--/***************************************************************************************************-->
 											<!--Applicant Image-->
 											<!--*****************************************************************************************************/-->
-											<Image densityAware="false" src="/destinations/BootCampDestination/JobEnrollmentDemo/DocManagement?type=pic&amp;empid={PERSONID}"
-												width="2rem"></Image>
+											<Image densityAware="false" src="/BootCampDestination/JobEnrollmentDemo/DocManagement?type=pic&amp;empid={PERSONID}"
+												width="2rem"/>
 											<!--/***************************************************************************************************-->
 											<!--Add Last Name in binding-->
 											<!--*****************************************************************************************************/-->
@@ -67,8 +67,8 @@
 											<!--*****************************************************************************************************/-->
 											<Link press="linkOnCalenderPress" target="_top" text="{i18n>detailLineItemTableNotification}">
 												<customData>
-													<core:CustomData key="empId" value="{PERSONID}"></core:CustomData>
-													<core:CustomData key="jobId" value="{JOBID}"></core:CustomData>
+													<core:CustomData key="empId" value="{PERSONID}"/>
+													<core:CustomData key="jobId" value="{JOBID}"/>
 												</customData>
 											</Link>
 											<ObjectNumber unit="{LOCATION}"/>
@@ -83,8 +83,8 @@
 					<!--*****************************************************************************************************/-->
 					<IconTabFilter icon="sap-icon://donut-chart" id="iconTabBarFilter2" key="analytics" tooltip="{i18n>detailIconTabBarAttachments}">
 						<content>
-							<viz:Popover id="idPopOver"></viz:Popover>
-							<viz:VizFrame id="idVizFrameDonut" uiConfig="{applicationSet:'fiori'}"></viz:VizFrame>
+							<viz:Popover id="idPopOver"/>
+							<viz:VizFrame id="idVizFrameDonut" uiConfig="{applicationSet:'fiori'}"/>
 						</content>
 					</IconTabFilter>
 				</items>

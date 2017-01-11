@@ -279,11 +279,11 @@ sap.ui.define([
 			var personId = source.getCustomData()[0].getValue();
 			var jobId = source.getCustomData()[1].getValue();
 			// Path Need to change to Java Application.
-			var url = 'https://googlei044067trial.hanatrial.ondemand.com/JobEnrollmentDemo/GoogleAccess?title=Interview with ' + personId;
+			var url = 'https://bootcampp1940991767trial.hanatrial.ondemand.com/JobEnrollmentDemo/GoogleAccess?title=Interview%20with%20' + personId;
 			var googleWindow = window.open(url, "Google Page", "width=480,height=585,top=100,left=300,location=no");
 
 			//var oRootPath = this.getView().getModel("device").getProperty("/rootPath");
-			var url = window.oRootPath +"/destinations/BootCampDestination/JobEnrollmentDemo/MailServlet?personid=" + personId + "&jobid=" + jobId;
+			var url = window.oRootPath +"/BootCampDestination/JobEnrollmentDemo/MailServlet?personid=" + personId + "&jobid=" + jobId;
 
 			$
 				.ajax({
@@ -294,11 +294,11 @@ sap.ui.define([
 					datatype: "json",
 					contenttype: "application/json",
 					success: function(resp) {
-						alert("Email Successfully Sent");
+						sap.m.MessageToast.show("Email Successfully Sent");
 
 					},
 					error: function(e) {
-						alert("Error while sending email");
+						sap.m.MessageToast.show("Error while sending email");
 					}
 				});
 
